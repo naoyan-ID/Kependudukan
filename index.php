@@ -390,7 +390,7 @@
 			<footer class="main-footer">
 				<div class="float-right d-none d-sm-block">
 					Copyright &copy;
-					<a target="_blank" href="https://www.instagram.com/hdynkri/">
+					<a target="_blank" href="https://linktr.ee/itsmehadiyan">
 						<strong> Hadiyan Nur Fikri</strong>
 					</a>
 				</div>
