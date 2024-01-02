@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2023 pada 01.01
+-- Waktu pembuatan: 02 Jan 2024 pada 20.41
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -34,18 +34,6 @@ CREATE TABLE `tb_anggota` (
   `hubungan` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `tb_anggota`
---
-
-INSERT INTO `tb_anggota` (`id_anggota`, `id_kk`, `id_pend`, `hubungan`) VALUES
-(1, 1, 2, 'Kepala Keluarga'),
-(2, 1, 1, 'Anak'),
-(3, 1, 3, 'Anak'),
-(4, 2, 4, 'Kepala Keluarga'),
-(5, 2, 5, 'Istri'),
-(6, 2, 6, 'Anak');
-
 -- --------------------------------------------------------
 
 --
@@ -60,13 +48,6 @@ CREATE TABLE `tb_datang` (
   `tgl_datang` date NOT NULL,
   `pelapor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_datang`
---
-
-INSERT INTO `tb_datang` (`id_datang`, `nik`, `nama_datang`, `jekel`, `tgl_datang`, `pelapor`) VALUES
-(1, '3172293293923925', 'Nurohman', 'Laki-Laki', '2023-07-20', 1);
 
 -- --------------------------------------------------------
 
@@ -88,14 +69,6 @@ CREATE TABLE `tb_kk` (
   `prov` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `tb_kk`
---
-
-INSERT INTO `tb_kk` (`id_kk`, `no_kk`, `kepala`, `alamat`, `rt`, `rw`, `pos`, `kel`, `kec`, `kota`, `prov`) VALUES
-(1, '3174042601180000', 'Titin Suprihatin', 'Gang haji Pondoh', '004', '04', '12620', 'Jagakarsa', 'Jagakarsa', '', 'DKI Jakarta'),
-(2, '3174042601181111', 'Ahmad Abdurahman', 'Gang haji Pondoh', '004', '04', '12620', 'Jagakarsa', 'Jagakarsa', '', 'DKI Jakarta');
-
 -- --------------------------------------------------------
 
 --
@@ -111,14 +84,6 @@ CREATE TABLE `tb_lahir` (
   `id_kk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `tb_lahir`
---
-
-INSERT INTO `tb_lahir` (`id_lahir`, `nama`, `tempat_lh`, `tgl_lh`, `jekel`, `id_kk`) VALUES
-(1, 'Ayase Naomi', 'Kyoto', '2023-06-30', 'Perempuan', 1),
-(2, 'Rahmayu Ningsih', 'Jakarta', '2023-07-08', 'Perempuan', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -131,13 +96,6 @@ CREATE TABLE `tb_mendu` (
   `tgl_mendu` date NOT NULL,
   `sebab` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_mendu`
---
-
-INSERT INTO `tb_mendu` (`id_mendu`, `id_pdd`, `tgl_mendu`, `sebab`) VALUES
-(1, 3, '2023-07-21', 'Sakit');
 
 -- --------------------------------------------------------
 
@@ -162,18 +120,6 @@ CREATE TABLE `tb_pdd` (
   `pekerjaan` varchar(30) NOT NULL,
   `status` enum('Ada','Meninggal','Pindah') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_pdd`
---
-
-INSERT INTO `tb_pdd` (`id_pend`, `nik`, `nama`, `tempat_lh`, `tgl_lh`, `jekel`, `pendidikan`, `handphone`, `alamat`, `rt`, `rw`, `agama`, `kawin`, `pekerjaan`, `status`) VALUES
-(1, '3174042901010000', 'Hadiyan Nur Fikri', 'Jakarta', '2001-01-29', 'Laki-Laki', 'SMA', '087785621392', 'Gang haji Pondoh', '004', '04', 'Islam', 'Belum', 'Mahasiswa', 'Ada'),
-(2, '3174042901012222', 'Titin Suprihatin', 'Magetan', '1964-03-03', 'Perempuan', 'SMP', '085751107817', 'Gang haji Pondoh', '004', '04', 'Islam', 'Cerai Mati', 'Ibu Rumah Tangga', 'Ada'),
-(3, '3174042901013333', 'Ayaka Freya', 'Tokyo', '2005-02-09', 'Perempuan', 'SMA', '087841507668', 'Gang haji Pondoh', '004', '04', 'Islam', 'Sudah', 'Mahasiswa', 'Meninggal'),
-(4, '4728294782640001', 'Ahmad Abdurrahman', 'Solo', '1955-11-12', 'Laki-Laki', 'SMP', '081234567890', 'gang haji Pondoh', '004', '04', 'Islam', 'Sudah', 'Buruh', 'Ada'),
-(5, '4728294782640002', 'Siti Rahmawati', 'Bengkulu', '1961-06-06', 'Perempuan', 'SMP', '081234567891', 'gang haji Pondoh', '004', '04', 'Islam', 'Sudah', 'Ibu Rumah Tangga', 'Ada'),
-(6, '4728294782640003', 'Indah Lestari', 'Bogor', '2002-10-16', 'Perempuan', 'SMA', '081234567892', 'Gang haji Pondoh', '004', '04', 'Islam', 'Belum', 'Mahasiswa', 'Pindah');
 
 -- --------------------------------------------------------
 
@@ -208,13 +154,6 @@ CREATE TABLE `tb_pindah` (
   `tgl_pindah` date NOT NULL,
   `alasan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tb_pindah`
---
-
-INSERT INTO `tb_pindah` (`id_pindah`, `id_pdd`, `tgl_pindah`, `alasan`) VALUES
-(1, 6, '2023-07-13', 'Pekerjaan');
 
 --
 -- Indexes for dumped tables
@@ -282,7 +221,7 @@ ALTER TABLE `tb_pindah`
 -- AUTO_INCREMENT untuk tabel `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_datang`
@@ -294,13 +233,13 @@ ALTER TABLE `tb_datang`
 -- AUTO_INCREMENT untuk tabel `tb_kk`
 --
 ALTER TABLE `tb_kk`
-  MODIFY `id_kk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_lahir`
 --
 ALTER TABLE `tb_lahir`
-  MODIFY `id_lahir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_lahir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_mendu`
@@ -312,7 +251,7 @@ ALTER TABLE `tb_mendu`
 -- AUTO_INCREMENT untuk tabel `tb_pdd`
 --
 ALTER TABLE `tb_pdd`
-  MODIFY `id_pend` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pend` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengguna`
